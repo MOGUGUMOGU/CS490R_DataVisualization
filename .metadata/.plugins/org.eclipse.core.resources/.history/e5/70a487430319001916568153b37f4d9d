@@ -1,0 +1,55 @@
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.Graphics;
+
+import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JPanel;
+
+public class Main extends JPanel implements ActionListener {
+	public Main() {
+		
+	}
+	
+	public JMenuBar createMenu() {
+		var file = new JMenu("File");
+		var option1 = new JMenuItem("Open...");
+		var option2 = new JMenuItem("Save");
+		var option3 = new JMenuItem("Exit");
+		option3.setActionCommand("EXIT");
+		option3.addActionListener(this);
+		
+		file.add(option1);
+		file.add(option2);
+		file.add(option3);
+		
+		var menubar = new JMenuBar();
+		menubar.add(file);
+		return menubar;
+	}
+	
+	public static void main(String[] args) {
+		var window = new JFrame("CS490R is my favorit class!");
+		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		window.setSize(800, 600);
+		window.setVisible(true);
+		var contents = new Main();
+		window.setContentPane(contents);
+		window.setJMenuBar(contents.createMenu());
+	}
+	@Override
+	public void paintComponent(Graphics g) {
+		g.drawString("Hello CS490R World!", 10, 10);
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		String cmd = e.getActionCommand();
+		if(cmd.contentEquals("EXIT")) {
+			System.exit(0);
+		}
+		
+	}
+}
