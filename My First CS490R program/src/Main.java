@@ -41,7 +41,6 @@ public class Main extends JFrame {
 			y += velY;
 			if (x <= 0 || x >= 750)
 				velX = velX * -1;
-
 			if (y <= 0 || y >= 500)
 				velY = velY * -1;
 			Vis.points(x, y);
