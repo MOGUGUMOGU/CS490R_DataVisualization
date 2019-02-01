@@ -1,9 +1,10 @@
-x ++;
-				y ++;
-				if (x <= 0 || x >= 800)
-					velX = velX * -1;
-
-				if (y <= 0 || y >= 600)
-					velY = velY * -1;
-				Vis.points(x, y);
-				repaint();
+try
+    {
+      UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+    }
+    catch (Exception localException) {}
+    SwingUtilities.invokeLater(new Runnable() {
+      public void run() {
+        new Main(null);
+      }
+    });
